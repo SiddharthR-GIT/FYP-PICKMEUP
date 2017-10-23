@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name-"viewport"
+			content = "initial-scale=1.0, user-scable=no"/>
+		<style type="text/css">
+			html { height: 100% }
+			body { height: 100%; margin: 0; pqdding: 0}
+			#mapDiv {height: 80%}
+		</style>
+		<!-- Adding map-->
+ 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7Eolow2VRUNxWc8xsC6k-6wYU7OQherk">
+		</script>
+		<script type="text/javascript">
+			// -- Adding map
+			var map;
+			var geocoder = new google.maps.Geocoder();
+			function init(){
+				var mapOptions={
+    				center: new google.maps.LatLng(53.278528599999994,-9.0097945),
+    				zoom: 16,
+    				disableDefaultUI: true,
+    				zoomControl: true,
+    				panControl: true,
+    				mapTypeControl: true,
+    				scaleControl: true,
+    				streetViewControl: true,
+    				rotateControl: true,
+    				overviewMapControl: true
+    			};
+    			var map = new google.maps.Map(document.getElementById("mapDiv"), mapOptions);
+			}
+			google.maps.event.addDomListener(window,"load", init);
+
+			function geocodeAddress(){
+				var address = document.getElementById("address").value.geocoder.geocode({'address': address},
+				function(results, status){
+					if(status == google.aps.GeocoderStatus.OK){
+						map.setCenter(result[0].geometry.location);
+						var marker = new google.maps.Marker({
+							maps: map,
+							position: results[0].geometry.location
+						});
+						map.setZoom(15);
+						map.panTo(marker.postion)
+					}else{
+						alert("geocode failed with the following error:" + status);
+					}
+				});
+			}
+		</script>
+		<body>
+			<div>
+				<input id "address" type="textbox" value = "GMIT, Galway" style = "width:300px;">
+				<input type = "button" value="Geocode" onclick="geocodeAddress()">
+			</div>
+			<div id="mapDiv"></div>
+		</body>
+	</head>
+</html 
+-->
