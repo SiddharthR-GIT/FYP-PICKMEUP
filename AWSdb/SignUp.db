@@ -1,0 +1,8 @@
+create table SignUpData (
+	ID int NOT NULL AUTO_INCREMENT,
+	First_Name varchar (30) NULL,
+	Last_Name varchar (30) NULL,
+	Email varchar (50) NULL,
+	Title varchar (50) NULL,
+	primary key (ID)
+)
