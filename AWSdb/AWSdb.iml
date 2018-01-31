@@ -19,16 +19,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 9.0.1" level="application_server_libraries" />
-    <orderEntry type="module-library" exported="" scope="TEST">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/mysql-connector-java-3.0.10-stable.1512989381/mysql-connector-java-3.0.10-stable/mysql-connector-java-3.0.10-stable-bin.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/mysql-connector-java-5.1.45 2/mysql-connector-java-5.1.45-bin.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="mysql-connector-java-3.0.10-stable-bin (2)" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 9.0.1" level="application_server_libraries" />
   </component>
 </module>
