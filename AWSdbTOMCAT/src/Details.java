@@ -1,13 +1,10 @@
 import java.io.IOException;
-
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,38 +19,45 @@ public class Details extends HttpServlet {
     private Statement statement;
     private PreparedStatement find;
     private boolean isEmailViable;
+    private boolean filePresent;
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter pr = response.getWriter();
 
 
-        try{
+        try {
 
             String driver = "com.mysql.jdbc.Driver";
             String url = "jdbc:mysql://rds-mysql-db.czetjngd8wtj.eu-west-1.rds.amazonaws.com:3306/Details?autoReconnect=true&useSSL=false";
             Class.forName(driver);  // load the driver
-            connection = DriverManager.getConnection(url,"MasterUser","password");
+            connection = DriverManager.getConnection(url, "MasterUser", "password");
 
             find = connection.prepareStatement("SELECT *" + "FROM peopleDetails");
             statement = connection.createStatement();
-            isEmailViable = isValidEmailAddress(request.getParameter("Email"));
+            isEmailViable = isValidEmail.isValidEmailAddress(request.getParameter("Email"));
+            filePresent = FilesExist.fileExist();
 
-            if(isEmailViable == true) {
-                String sqlStatement = "INSERT INTO peopleDetails (First_Name, Last_Name, Email, Title) " +
-                        "VALUES("
-                        +"'" + request.getParameter("first_name") +"'" +','
-                        +"'" + request.getParameter("last_name")+"'" +','
-                        +"'" + request.getParameter("Email") +"'"+ ','
-                        +"'" + request.getParameter("Title") +"')";
+            if(filePresent == true) {
+                if (isEmailViable == true) {
+                    String sqlStatement = "INSERT INTO peopleDetails (First_Name, Last_Name, Email, Title) " +
+                            "VALUES("
+                            + "'" + request.getParameter("first_name") + "'" + ','
+                            + "'" + request.getParameter("last_name") + "'" + ','
+                            + "'" + request.getParameter("Email") + "'" + ','
+                            + "'" + request.getParameter("Title") + "')";
 
-                statement.executeUpdate(sqlStatement);
+                    statement.executeUpdate(sqlStatement);
+                } else {
+                    pr.println("<html><head><title>ERROR</title></head><body>");
+                    pr.println("<p>You Problem is that the Email is not valid </p>");
+                }
             }
             else{
                 pr.println("<html><head><title>ERROR</title></head><body>");
-                pr.println("<p>You Problem is that the Email is not valid </p>");
+                pr.println("<p>You Problem is that the files do no </p>");
             }
-        }catch(SQLException sql){
+        } catch (SQLException sql) {
             sql.printStackTrace();
             pr.println("<html><head><title>ERROR</title></head><body>");
             pr.println("<p>You Problem is: " + sql + "</p>");
@@ -63,30 +67,18 @@ public class Details extends HttpServlet {
             e.printStackTrace();
         } finally {
             pr.close();
-            try{
-                if(statement != null){
+            try {
+                if (statement != null) {
                     statement.close();
                 }
-                if (connection != null){
+                if (connection != null) {
                     connection.close();
                 }
-            }catch(SQLException sql){
+            } catch (SQLException sql) {
                 sql.printStackTrace();
             }
 
         }
     }
-    public static boolean isValidEmailAddress(String email){
-        boolean feedback = true;
 
-        try{
-            InternetAddress emailAdd = new InternetAddress(email);
-            emailAdd.validate(); // valid the email if its real or fake
-
-        } catch (AddressException e) {
-            e.printStackTrace();
-            feedback = false;
-        }
-        return feedback;
-    }
 }
