@@ -5,12 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 @WebServlet(urlPatterns = {"/Details"})
 public class Details extends HttpServlet {
@@ -21,50 +19,57 @@ public class Details extends HttpServlet {
     private boolean isEmailViable;
     private boolean filePresent;
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter pr = response.getWriter();
 
 
         try {
 
+
             String driver = "com.mysql.jdbc.Driver";
-            String url = "jdbc:mysql://rds-mysql-db.czetjngd8wtj.eu-west-1.rds.amazonaws.com:3306/Details?autoReconnect=true&useSSL=false";
+            //String url = "jdbc:mysql://rds-mysql-db.czetjngd8wtj.eu-west-1.rds.amazonaws.com:3306/Details?autoReconnect=true&useSSL=false";
+            String url = "jdbc:mysql://projectdb.czetjngd8wtj.eu-west-1.rds.amazonaws.com:3306/Details?autoReconnect=true&useSSL=false";
+
             Class.forName(driver);  // load the driver
-            connection = DriverManager.getConnection(url, "MasterUser", "password");
+            connection = DriverManager.getConnection(url, "Master", "grapet45");
 
             find = connection.prepareStatement("SELECT *" + "FROM peopleDetails");
             statement = connection.createStatement();
             isEmailViable = isValidEmail.isValidEmailAddress(request.getParameter("Email"));
             filePresent = FilesExist.fileExist();
 
-            if(filePresent == true) {
-                if (isEmailViable == true) {
-                    String sqlStatement = "INSERT INTO peopleDetails (First_Name, Last_Name, Email, Title) " +
-                            "VALUES("
-                            + "'" + request.getParameter("first_name") + "'" + ','
-                            + "'" + request.getParameter("last_name") + "'" + ','
-                            + "'" + request.getParameter("Email") + "'" + ','
-                            + "'" + request.getParameter("Title") + "')";
 
-                    statement.executeUpdate(sqlStatement);
-                } else {
-                    pr.println("<html><head><title>ERROR</title></head><body>");
-                    pr.println("<p>You Problem is that the Email is not valid </p>");
-                }
-            }
-            else{
-                pr.println("<html><head><title>ERROR</title></head><body>");
-                pr.println("<p>You Problem is that the files do no </p>");
-            }
-        } catch (SQLException sql) {
+            String sqlStatement = "INSERT INTO peopleDetails (First_Name, Last_Name, Email, Title) " +
+                    "VALUES("
+                    + "'" + request.getParameter("first_name") + "'" + ','
+                    + "'" + request.getParameter("last_name") + "'" + ','
+                    + "'" + request.getParameter("Email") + "'" + ','
+                    + "'" + request.getParameter("Title") + "')";
+            pr.println("<html><head><title>PICKMEUP</title></head><body>");
+            pr.println("<p>Connected </p></body></html>");
+            pr.flush();
+
+            statement.executeUpdate(sqlStatement);
+
+//                } else {
+//                    pr.println("<html><head><title>ERROR</title></head><body>");
+//                    pr.println("<p>You Problem is that the Email is not valid </p></body></html>");
+//                }
+//            }
+//            else{
+//                pr.println("<html><head><title>ERROR</title></head><body>");
+//                pr.println("<p>You Problem is that the files do no </p></body></html>");
+//            }
+           // pr.flush();
+
+        } catch (Exception sql) {
             sql.printStackTrace();
             pr.println("<html><head><title>ERROR</title></head><body>");
-            pr.println("<p>You Problem is: " + sql + "</p>");
+            pr.println("<p>You Problem is: " + sql + "</p></body></html>");
             pr.println(sql);
+            pr.flush();
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         } finally {
             pr.close();
             try {

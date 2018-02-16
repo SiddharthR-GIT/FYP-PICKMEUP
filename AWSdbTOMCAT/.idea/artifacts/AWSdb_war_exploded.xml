@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="AWSdb:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/AWSdb_war_exploded</output-path>
-    <root id="root">
+  <artifact type="war" build-on-make="true" name="AWSdb:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
+    <root id="archive" name="AWSdb_war.war">
       <element id="javaee-facet-resources" facet="AWSdb/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
