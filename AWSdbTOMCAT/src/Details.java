@@ -3,6 +3,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.servlet.annotation.WebServlet;
@@ -27,12 +28,12 @@ public class Details extends HttpServlet {
         try {
 
 
-            String driver = "com.mysql.jdbc.Driver";
-            //String url = "jdbc:mysql://rds-mysql-db.czetjngd8wtj.eu-west-1.rds.amazonaws.com:3306/Details?autoReconnect=true&useSSL=false";
-            String url = "jdbc:mysql://projectdb.czetjngd8wtj.eu-west-1.rds.amazonaws.com:3306/Details?autoReconnect=true&useSSL=false";
-
-            Class.forName(driver);  // load the driver
-            connection = DriverManager.getConnection(url, "Master", "grapet45");
+//            String driver = "com.mysql.jdbc.Driver";
+//            //String url = "jdbc:mysql://rds-mysql-db.czetjngd8wtj.eu-west-1.rds.amazonaws.com:3306/Details?autoReconnect=true&useSSL=false";
+//            String url = "jdbc:mysql://projectdb.czetjngd8wtj.eu-west-1.rds.amazonaws.com:3306/Details?autoReconnect=true&useSSL=false";
+//
+//            Class.forName(driver);  // load the driver
+            connection = DriverManager.getConnection(jdbcUrl, "Master", "grapet45");
 
             find = connection.prepareStatement("SELECT *" + "FROM peopleDetails");
             statement = connection.createStatement();
@@ -51,6 +52,15 @@ public class Details extends HttpServlet {
             pr.flush();
 
             statement.executeUpdate(sqlStatement);
+
+            ResultSet resultSet = find.executeQuery();
+
+            pr.println("<html><head><title>Results</title></head><body>");
+            pr.println("<p> Values have been entered into Database");
+            pr.println("<p> ID , First Name, Last Name, ISBN, Title, Copyright, Comments");
+
+            while (resultSet.next()) {
+            }
 
 //                } else {
 //                    pr.println("<html><head><title>ERROR</title></head><body>");
