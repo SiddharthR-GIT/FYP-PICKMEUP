@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up Form with live validation</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!--<form  action="index.jsp" method="post" >-->
+<form name="login" method="post" action="/Login">
+    <h2>Login</h2>
+
+    <p>
+        <label for="Email"></label>
+        <input  type="text" placeholder="Email *" name="Email" type="email" maxlength="50" size="30" required>
+        <span>Enter a valid Email</span>
+    </p>
+    <p>
+        <label for="Password"></label>
+        <input  type="password" placeholder="Password*" name="Password" type="password" maxlength="50" size="30" required>
+        <span>Driver or Passenger</span>
+    </p>
+    <p>
+        <input type="submit" value="Login " id="submit">
+    </p>
+</form>
+</body>
