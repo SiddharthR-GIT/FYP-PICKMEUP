@@ -24,7 +24,7 @@
         <entry file="file://$PROJECT_DIR$/src/Connection.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="27" lean-forward="false" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
+              <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -33,12 +33,21 @@
       <file leaf-file-name="root.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/root.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+            <state relative-caret-position="561">
+              <caret line="33" column="15" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="33" selection-end-column="15" />
               <folding>
-                <marker date="1520425227611" expanded="true" signature="1247:1371" ph="INSERT INTO peopleDetails... " />
-                <marker date="1520425227611" expanded="true" signature="1247:1372" ph="INSERT INTO peopleDetails... " />
+                <marker date="1521423626807" expanded="true" signature="1185:1310" ph="INSERT INTO peopleDetails... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MANIFEST.MF" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/META-INF/MANIFEST.MF">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -46,8 +55,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="42" column="7" lean-forward="false" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+            <state relative-caret-position="119">
+              <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -82,9 +91,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/web/index.jsp" />
-        <option value="$PROJECT_DIR$/src/Connection.java" />
-        <option value="$PROJECT_DIR$/web/root.jsp" />
         <option value="$PROJECT_DIR$/web/index.html" />
+        <option value="$PROJECT_DIR$/web/root.jsp" />
+        <option value="$PROJECT_DIR$/src/Connection.java" />
       </list>
     </option>
   </component>
@@ -101,7 +110,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="952" />
@@ -161,8 +170,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -173,14 +184,23 @@
             <path>
               <item name="EB2RDS" type="b2602c69:ProjectViewProjectNode" />
               <item name="EB2RDS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EB2RDS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EB2RDS" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EB2RDS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EB2RDS" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -407,15 +427,44 @@
       <workItem from="1520436228484" duration="545000" />
       <workItem from="1520456928316" duration="217000" />
       <workItem from="1520594054629" duration="1019000" />
+      <workItem from="1520598122191" duration="536000" />
+      <workItem from="1520601088264" duration="97000" />
+      <workItem from="1520603919747" duration="3963000" />
+      <workItem from="1520618350359" duration="598000" />
+      <workItem from="1520621677706" duration="1112000" />
+      <workItem from="1520625527753" duration="4088000" />
+      <workItem from="1520692852276" duration="598000" />
+      <workItem from="1520693851718" duration="1710000" />
+      <workItem from="1520777695792" duration="561000" />
+      <workItem from="1521019187855" duration="630000" />
+      <workItem from="1521037102950" duration="598000" />
+      <workItem from="1521123193465" duration="367000" />
+      <workItem from="1521126944756" duration="135000" />
+      <workItem from="1521127527901" duration="657000" />
+      <workItem from="1521194511616" duration="598000" />
+      <workItem from="1521197806523" duration="598000" />
+      <workItem from="1521201248666" duration="479000" />
+      <workItem from="1521203447340" duration="1335000" />
+      <workItem from="1521210221957" duration="362000" />
+      <workItem from="1521214544829" duration="1159000" />
+      <workItem from="1521218344023" duration="1413000" />
+      <workItem from="1521414452588" duration="598000" />
+      <workItem from="1521416468236" duration="598000" />
+      <workItem from="1521419933738" duration="2614000" />
+      <workItem from="1521469028968" duration="407000" />
+      <workItem from="1521470995962" duration="4222000" />
+      <workItem from="1521479870041" duration="3159000" />
+      <workItem from="1521557040265" duration="425000" />
+      <workItem from="1521568902511" duration="1051000" />
+      <workItem from="1521573757360" duration="585000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25722000" />
+    <option name="totallyTimeSpent" value="60975000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="952" extended-state="1" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1680" height="952" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -431,7 +480,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.122023806" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09404762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -461,14 +510,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="7" lean-forward="false" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -490,8 +531,7 @@
         <state relative-caret-position="901">
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
-            <marker date="1520425227611" expanded="true" signature="1247:1371" ph="INSERT INTO peopleDetails... " />
-            <marker date="1520425227611" expanded="true" signature="1247:1372" ph="INSERT INTO peopleDetails... " />
+            <marker date="1521423626807" expanded="true" signature="1185:1310" ph="INSERT INTO peopleDetails... " />
           </folding>
         </state>
       </provider>
@@ -525,8 +565,7 @@
         <state relative-caret-position="901">
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
-            <marker date="1520425227611" expanded="true" signature="1247:1371" ph="INSERT INTO peopleDetails... " />
-            <marker date="1520425227611" expanded="true" signature="1247:1372" ph="INSERT INTO peopleDetails... " />
+            <marker date="1521423626807" expanded="true" signature="1185:1310" ph="INSERT INTO peopleDetails... " />
           </folding>
         </state>
       </provider>
@@ -560,8 +599,7 @@
         <state relative-caret-position="901">
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
-            <marker date="1520425227611" expanded="true" signature="1247:1371" ph="INSERT INTO peopleDetails... " />
-            <marker date="1520425227611" expanded="true" signature="1247:1372" ph="INSERT INTO peopleDetails... " />
+            <marker date="1521423626807" expanded="true" signature="1185:1310" ph="INSERT INTO peopleDetails... " />
           </folding>
         </state>
       </provider>
@@ -595,8 +633,7 @@
         <state relative-caret-position="901">
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
-            <marker date="1520425227611" expanded="true" signature="1247:1371" ph="INSERT INTO peopleDetails... " />
-            <marker date="1520425227611" expanded="true" signature="1247:1372" ph="INSERT INTO peopleDetails... " />
+            <marker date="1521423626807" expanded="true" signature="1185:1310" ph="INSERT INTO peopleDetails... " />
           </folding>
         </state>
       </provider>
@@ -630,8 +667,7 @@
         <state relative-caret-position="901">
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
-            <marker date="1520425227611" expanded="true" signature="1247:1371" ph="INSERT INTO peopleDetails... " />
-            <marker date="1520425227611" expanded="true" signature="1247:1372" ph="INSERT INTO peopleDetails... " />
+            <marker date="1521423626807" expanded="true" signature="1185:1310" ph="INSERT INTO peopleDetails... " />
           </folding>
         </state>
       </provider>
@@ -665,8 +701,7 @@
         <state relative-caret-position="901">
           <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
-            <marker date="1520425227611" expanded="true" signature="1247:1371" ph="INSERT INTO peopleDetails... " />
-            <marker date="1520425227611" expanded="true" signature="1247:1372" ph="INSERT INTO peopleDetails... " />
+            <marker date="1521423626807" expanded="true" signature="1185:1310" ph="INSERT INTO peopleDetails... " />
           </folding>
         </state>
       </provider>
@@ -708,8 +743,7 @@
         <state relative-caret-position="714">
           <caret line="42" column="49" lean-forward="false" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
           <folding>
-            <marker date="1520425227611" expanded="true" signature="1247:1371" ph="INSERT INTO peopleDetails... " />
-            <marker date="1520425227611" expanded="true" signature="1247:1372" ph="INSERT INTO peopleDetails... " />
+            <marker date="1521423626807" expanded="true" signature="1185:1310" ph="INSERT INTO peopleDetails... " />
           </folding>
         </state>
       </provider>
@@ -735,8 +769,7 @@
         <state relative-caret-position="102">
           <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
           <folding>
-            <marker date="1520425227611" expanded="true" signature="1247:1371" ph="INSERT INTO peopleDetails... " />
-            <marker date="1520425227611" expanded="true" signature="1247:1372" ph="INSERT INTO peopleDetails... " />
+            <marker date="1521423626807" expanded="true" signature="1185:1310" ph="INSERT INTO peopleDetails... " />
           </folding>
         </state>
       </provider>
@@ -762,8 +795,7 @@
         <state relative-caret-position="1496">
           <caret line="88" column="4" lean-forward="false" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="73" />
           <folding>
-            <marker date="1520425227611" expanded="true" signature="1247:1371" ph="INSERT INTO peopleDetails... " />
-            <marker date="1520425227611" expanded="true" signature="1247:1372" ph="INSERT INTO peopleDetails... " />
+            <marker date="1521423626807" expanded="true" signature="1185:1310" ph="INSERT INTO peopleDetails... " />
           </folding>
         </state>
       </provider>
@@ -789,8 +821,7 @@
         <state relative-caret-position="1496">
           <caret line="88" column="4" lean-forward="false" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="73" />
           <folding>
-            <marker date="1520425227611" expanded="true" signature="1247:1371" ph="INSERT INTO peopleDetails... " />
-            <marker date="1520425227611" expanded="true" signature="1247:1372" ph="INSERT INTO peopleDetails... " />
+            <marker date="1521423626807" expanded="true" signature="1185:1310" ph="INSERT INTO peopleDetails... " />
           </folding>
         </state>
       </provider>
@@ -816,8 +847,7 @@
         <state relative-caret-position="1496">
           <caret line="88" column="4" lean-forward="false" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="73" />
           <folding>
-            <marker date="1520425227611" expanded="true" signature="1247:1371" ph="INSERT INTO peopleDetails... " />
-            <marker date="1520425227611" expanded="true" signature="1247:1372" ph="INSERT INTO peopleDetails... " />
+            <marker date="1521423626807" expanded="true" signature="1185:1310" ph="INSERT INTO peopleDetails... " />
           </folding>
         </state>
       </provider>
@@ -843,8 +873,7 @@
         <state relative-caret-position="1496">
           <caret line="88" column="4" lean-forward="true" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="73" />
           <folding>
-            <marker date="1520425227611" expanded="true" signature="1247:1371" ph="INSERT INTO peopleDetails... " />
-            <marker date="1520425227611" expanded="true" signature="1247:1372" ph="INSERT INTO peopleDetails... " />
+            <marker date="1521423626807" expanded="true" signature="1185:1310" ph="INSERT INTO peopleDetails... " />
           </folding>
         </state>
       </provider>
@@ -866,22 +895,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/index.html" />
-    <entry file="file://$PROJECT_DIR$/src/Connection.java">
+    <entry file="file://$PROJECT_DIR$/web/root.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="27" lean-forward="false" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
-          <folding />
+        <state relative-caret-position="561">
+          <caret line="33" column="15" lean-forward="false" selection-start-line="31" selection-start-column="4" selection-end-line="33" selection-end-column="15" />
+          <folding>
+            <marker date="1521423626807" expanded="true" signature="1185:1310" ph="INSERT INTO peopleDetails... " />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/root.jsp">
+    <entry file="file://$PROJECT_DIR$/src/Connection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-          <folding>
-            <marker date="1520425227611" expanded="true" signature="1247:1371" ph="INSERT INTO peopleDetails... " />
-            <marker date="1520425227611" expanded="true" signature="1247:1372" ph="INSERT INTO peopleDetails... " />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -893,10 +921,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="7" lean-forward="false" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+        <state relative-caret-position="119">
+          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding />
         </state>
       </provider>

@@ -1,3 +1,5 @@
+package stringHash;
+
 import java.security.MessageDigest;
 
 public class stringHasing {
@@ -5,12 +7,12 @@ public class stringHasing {
     public static void main(String[] args) {
 
         String password = "Password";
-        String hp = sha_256(password);
+        String hp = sha256(password);
         System.out.println("Actual password - "+password);
         System.out.println("Hash Password - "+hp);
 
     }
-    public static String sha_256(String password){
+    public static String sha256(String password){
 
         try{
             MessageDigest msg = MessageDigest.getInstance("SHA-256");

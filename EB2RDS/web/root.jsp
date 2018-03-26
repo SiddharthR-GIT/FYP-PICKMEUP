@@ -18,19 +18,13 @@
   String port = System.getProperty("RDS_PORT");
   String jdbcUrl = "jdbc:mysql://" + hostname + ":" +
           port + "/" + dbName + "?user=" + userName + "&password=" + password;
-
   String first_name = request.getParameter("first_name");
   String last_name = request.getParameter("last_name");
   String Email = request.getParameter("Email");
   String Title = request.getParameter("Title");
-
   PrintWriter pr = response.getWriter();
-
-
-
   // Load the JDBC driver
   try {
-
     Class.forName("com.mysql.jdbc.Driver");
     Connection con = DriverManager.getConnection(jdbcUrl);
     Statement st = con.createStatement();
@@ -38,16 +32,10 @@
     pr.println("<html><head><title>PICKMEUP</title></head><body>");
     pr.println("<p>Connected </p></body></html>");
     pr.flush();
-
-
   } catch (Exception e) {
     pr.println("<html><head><title>PICKMEUP</title></head><body>");
     pr.println("<p>"+ e.getMessage() + "</p></body></html>");
     pr.flush();
     throw new RuntimeException("Cannot find the driver in the classpath!", e);
   }
-
-
-
 %>
-

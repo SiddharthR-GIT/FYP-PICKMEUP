@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = {"/Connection"})
 public class Connection extends HttpServlet{
-
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html");
         getRemoteConnection();
 
