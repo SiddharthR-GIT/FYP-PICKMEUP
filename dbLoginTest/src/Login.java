@@ -22,7 +22,7 @@ public class Login extends HttpServlet {
 
     {
         try {
-            find = connection.prepareStatement("SELECT *"+"FROM Login WHERE Email =?");
+            find = connection.prepareStatement("SELECT *" + "FROM Login WHERE Email =?");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -42,12 +42,13 @@ public class Login extends HttpServlet {
             String url = "jdbc:mysql://localhost:3307/Details?autoReconnect=true&useSSL=false";
             Class.forName(driver);  // load the driver
             connection = DriverManager.getConnection(url,"root","password");
-
+            log.info("Entered Databse");
             //data to enter the sign up page
             int result = checkLoginDB(Email); // checking for duplicate email
             if(result == 0){
                 pr.println("<html><head><title>PICKMEUP</title></head><body>");
                 pr.println("<p>That email already in the Database </p></body></html>");
+                log.warning("Person Already Exist");
                 pr.flush();
             }
             else {
@@ -55,6 +56,7 @@ public class Login extends HttpServlet {
                     statement = connection.createStatement();
                     String sqlStatement = "INSERT INTO Login(Email, passKey) VALUES('" + Email + "','" + hashedPasskey + "')";
                     statement.executeUpdate(sqlStatement);
+                    log.info("Inserted");
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
