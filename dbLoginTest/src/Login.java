@@ -39,7 +39,7 @@ public class Login extends HttpServlet {
         Logger log = Logger.getLogger(Connection.class.getName());
         try {
             String driver = "com.mysql.jdbc.Driver";
-            String url = "jdbc:mysql://localhost:3307/Details?autoReconnect=true&useSSL=false";
+            String url = "jdbc:mysql://localhost:3306/Details?autoReconnect=true&useSSL=false";
             Class.forName(driver);  // load the driver
             connection = DriverManager.getConnection(url,"root","password");
             log.info("Entered Databse");
