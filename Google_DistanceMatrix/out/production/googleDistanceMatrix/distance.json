@@ -1,0 +1,26 @@
+{
+  "destination_addresses": [
+    "Dublin, Ireland"
+  ],
+  "origin_addresses": [
+    "Galway, Ireland"
+  ],
+  "rows": [
+    {
+      "elements": [
+        {
+          "distance": {
+            "text": "208 km",
+            "value": 207896
+          },
+          "duration": {
+            "text": "2 hours 21 mins",
+            "value": 8459
+          },
+          "status": "OK"
+        }
+      ]
+    }
+  ],
+  "status": "OK"
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DistanceMatrixResponse>
+    <status>OK</status>
+    <origin_address>Galway, Ireland</origin_address>
+    <destination_address>Dublin, Ireland</destination_address>
+    <row>
+        <element>
+            <status>OK</status>
+            <duration>
+                <value>8459</value>
+                <text>2 hours 21 mins</text>
+            </duration>
+            <distance>
+                <value>207896</value>
+                <text>129 mi</text>
+            </distance>
+        </element>
+    </row>
+</DistanceMatrixResponse>

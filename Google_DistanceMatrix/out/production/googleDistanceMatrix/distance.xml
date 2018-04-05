@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DistanceMatrixResponse>
+    <status>OK</status>
+    <origin_address>Galway, Ireland</origin_address>
+    <destination_address>Tuam, Co. Galway, Ireland</destination_address>
+    <row>
+        <element>
+            <status>OK</status>
+            <duration>
+                <value>2371</value>
+                <text>40 mins</text>
+            </duration>
+            <distance>
+                <value>33728</value>
+                <text>33.7 km</text>
+            </distance>
+        </element>
+    </row>
+</DistanceMatrixResponse>
