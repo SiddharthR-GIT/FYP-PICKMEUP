@@ -29,6 +29,16 @@
         <span>Enter a valid Email</span>
     </p>
     <p>
+        <label for="Origin"></label>
+        <input  type="text" placeholder="Where are you going from?" name="Origin" type="origin" maxlength="50" size="30" required>
+        <span>Origin</span>
+    </p>
+    <p>
+        <label for="Destination"></label>
+        <input  type="text" placeholder="Where you want to going to?" name="Destination" type="destination" maxlength="50" size="30" required>
+        <span>Destination</span>
+    </p>
+    <p>
         <label for="Title"></label>
         <input  type="text" placeholder="Driver or Passenger*" name="Title" type="title" maxlength="50" size="30" required>
         <span>Driver or Passenger</span>
@@ -40,9 +50,9 @@
     <p>
         <input type="submit" value="Create My Account " id="submit">
     </p>
-
-    <button type="redirect" onclick="location.href='login.html';" id="myButton" align="middle" >Login</button>
-
+    <div style="text-align: center">
+        <a href="login.html">Or Login</a>
+    </div>
 </form>
 
 </body>

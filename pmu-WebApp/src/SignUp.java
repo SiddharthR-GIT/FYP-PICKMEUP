@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.mail.internet.InternetAddress;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,7 +26,7 @@ public class SignUp extends HttpServlet {
     private PreparedStatement find;
     private PreparedStatement find2;
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         String first_name = request.getParameter("first_name");
         String last_name = request.getParameter("last_name");
@@ -34,7 +35,9 @@ public class SignUp extends HttpServlet {
         String Title = request.getParameter("Title");
         String loginTitle = request.getParameter("Title");
         String Password = request.getParameter("Password");
-        String hashPass = HashPassword.sha_256(Password);
+        String hashPass = sha_256(Password);
+        String originInput = request.getParameter("Origin");
+        String destinationInput = request.getParameter("Destination");
         PrintWriter pr = response.getWriter();
 
         String dbName = System.getProperty("RDS_DB_NAME");
@@ -44,6 +47,8 @@ public class SignUp extends HttpServlet {
         String port = System.getProperty("RDS_PORT");
         String jdbcUrl = "jdbc:mysql://" + hostname + ":" +
                 port + "/" + dbName + "?user=" + userName + "&password=" + password;
+
+
 
         Logger log = Logger.getLogger(Connection.class.getName());
         try {
@@ -56,7 +61,6 @@ public class SignUp extends HttpServlet {
             find2 = connection.prepareStatement("SELECT * FROM Login WHERE Email=?");
 
             int result = checkSignDB(Email);
-            String passwordResult =checkLoginDB(LoginEmail);
 
             if (result == 0) { //error
                 pr.println("<html><head><title>PICKMEUP</title></head><body>");
@@ -65,28 +69,21 @@ public class SignUp extends HttpServlet {
             } else {//insert new person
                 try {
                     statement = connection.createStatement();
-                    String sqlStatement = "INSERT INTO peopleDetails(First_Name,Last_Name,Email,Title,passKey) VALUES ('" + first_name + "','" + last_name + "','" + Email + "','" + Title + "','" + hashPass + "') ";
+                    String sqlStatement = "INSERT INTO peopleDetails(First_Name,Last_Name,Email,Title,passKey) " +
+                                          "VALUES ('" + first_name + "','" + last_name + "','" + Email + "','" + Title + "','" + hashPass + "') ";
+
                     statement.executeUpdate(sqlStatement);
+
                     statement2 = connection.createStatement();
-                    String sqlStatement2 = "INSERT INTO Login(Email,Title,passKey) VALUE('" + LoginEmail + "','" + loginTitle + "','" + hashPass + "')";
+                    String sqlStatement2 = "INSERT INTO Login(Email,Title,passKey,Origin,Destination) " +
+                                           "VALUE('" + LoginEmail + "','" + loginTitle + "','" + hashPass + "','"+ originInput+"','"+ destinationInput+"')";
+
                     statement2.executeUpdate(sqlStatement2);
-                    pr.println("<html><head><title>PICKMEUP</title></head><body>");
-                    pr.println("<p>INSERTION</p></body></html>");
-                    pr.flush();
+                    response.sendRedirect("login.html");
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
-            if (passwordResult.equals(hashPass)) {//next page
-                pr.println("<html><head><title>PICKMEUP</title></head><body>");
-                pr.println("<p>NEXT PAGE</p></body></html>");
-                pr.flush();
-            } else {// error
-                pr.println("<html><head><title>PICKMEUP</title></head><body>");
-                pr.println("<p>Person Already exist in the database </p></body></html>");
-                pr.flush();
-            }
-
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -99,7 +96,7 @@ public class SignUp extends HttpServlet {
             find.setString(1,Email);
             ResultSet rs = find.executeQuery();
             if (rs.next()) {
-                return 0;
+                return 0; // email exist
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -107,21 +104,6 @@ public class SignUp extends HttpServlet {
         return 1;//direct to next page
     }
 
-    public String checkLoginDB(String LoginEmail) {
-        try {
-            find2.setString(1,LoginEmail);
-            ResultSet rs = find2.executeQuery();
-            if (rs.next()) {
-                //email exist
-                return rs.getString(3);//next page
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;//direct to next page
-    }
-}
-final class HashPassword{
     public static String sha_256(String password){
 
         try{
