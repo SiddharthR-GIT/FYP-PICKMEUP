@@ -17,34 +17,47 @@
     <h2>Sign Up</h2>
     <p>
         <label for="first_name" ></label>
-        <input  type="text" placeholder="First Name *" name="first_name" maxlength="50" size="30" required>
+        <input  type="text" placeholder="First Name *" name="first_name" maxlength="50" size="30" required/>
     </p>
     <p>
         <label for="last_name"></label>
-        <input  type="text"  placeholder="Last Name *" name="last_name" maxlength="50" size="30" required>
+        <input  type="text"  placeholder="Last Name *" name="last_name" maxlength="50" size="30" required/>
     </p>
     <p>
         <label for="Email"></label>
-        <input  type="text" placeholder="Email *" name="Email" type="email" maxlength="50" size="30" required>
+        <input  type="text" placeholder="Email *" name="Email" type="email" maxlength="50" size="30" required/>
         <span>Enter a valid Email</span>
     </p>
     <p>
         <label for="Title"></label>
-        <input  type="text" placeholder="Driver or Passenger*" name="Title" type="title" maxlength="50" size="30" required>
+        <input  type="text" placeholder="Driver or Passenger*" name="Title" type="title" maxlength="50" size="30" required/>
         <span>Driver or Passenger</span>
     </p>
     <p>
-    <label for="Password"></label>
-    <input  type="password" placeholder="Password*" name="Password" type="password" maxlength="50" size="30" required>
-    <span>Driver or Passenger</span>
+        <label for="Password"></label>
+        <input  type="password" placeholder="Password*" name="Password" type="password" maxlength="50" size="30" required/>
     </p>
     <p>
-        <input type="submit" value="Create My Account " id="submit">
+        <label for="Origin"></label>
+        <input  type="text" placeholder="Where are you going from?" name="Origin" type="origin" maxlength="50" size="30" required>
+        <span>Origin</span>
+    </p>
+    <p>
+        <label for="Destination"></label>
+        <input  type="text" placeholder="Where you want to going to?" name="Destination" type="destination" maxlength="50" size="30" required>
+        <span>Destination</span>
+    </p>
+    <p>
+        <input onclick="window.location.href='login.html';" type="submit" value="Create My Account"/>
     </p>
 
+    <div style="text-align: center">
+        <a href="login.html">Or Login</a>
+    </div>
 
-    <a href="login.html">my link</a>
+
 </form>
+
 </body>
 
 </html>

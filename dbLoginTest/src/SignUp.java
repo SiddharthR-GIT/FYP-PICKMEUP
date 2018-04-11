@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,15 +26,18 @@ public class SignUp extends HttpServlet {
 
 
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws  IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         String first_name = request.getParameter("first_name");
         String last_name = request.getParameter("last_name");
         String Email = request.getParameter("Email");
         String LoginEmail = request.getParameter("Email");
         String Title = request.getParameter("Title");
+        String loginTitle = request.getParameter("Title");
         String Password = request.getParameter("Password");
-        String hashPass = HashPassword.sha_256(Password);
+        String originInput = request.getParameter("Origin");
+        String destinationInput = request.getParameter("Destination");
+        String hashPass = sha_256(Password);
         PrintWriter pr = response.getWriter();
 
         Logger log = Logger.getLogger(Connection.class.getName());
@@ -43,10 +49,9 @@ public class SignUp extends HttpServlet {
 
             //data to enter the sign up page
             find = connection.prepareStatement("SELECT * FROM peopleDetails WHERE Email =?");
-            find2 = connection.prepareStatement("SELECT * FROM Login WHERE LoginEmail=?,passKey=?");
+            find2 = connection.prepareStatement("SELECT * FROM Login WHERE Email=?");
 
             int result = checkSignDB(Email);
-            int result1 =checkLoginDB(LoginEmail);
 
             if (result == 0) { //error
                 pr.println("<html><head><title>PICKMEUP</title></head><body>");
@@ -55,27 +60,23 @@ public class SignUp extends HttpServlet {
             } else {//insert new person
                 try {
                     statement = connection.createStatement();
-                    String sqlStatement = "INSERT INTO peopleDetails(First_Name,Last_Name,Email,Title,passKey) VALUES ('" + first_name + "','" + last_name + "','" + Email + "','" + Title + "','" + hashPass + "') ";
+                    String sqlStatement = "INSERT INTO peopleDetails(First_Name,Last_Name,Email,Title,passKey) " +
+                            "VALUES ('" + first_name + "','" + last_name + "','" + Email + "','" + Title + "','" + hashPass + "') ";
+
                     statement.executeUpdate(sqlStatement);
+
                     statement2 = connection.createStatement();
-                    String sqlStatement2 = "INSERT INTO Login(LoginEmail, passKey) VALUE('" +LoginEmail + "','" + hashPass +"')";
+                    String sqlStatement2 = "INSERT INTO Login(Email,Title,passKey,Origin,Destination) " +
+                            "VALUE('" + LoginEmail + "','" + loginTitle + "','" + hashPass + "','"+ originInput+"','"+ destinationInput+"')";
+
                     statement2.executeUpdate(sqlStatement2);
-                    pr.println("<html><head><title>PICKMEUP</title></head><body>");
-                    pr.println("<p>INSERTION</p></body></html>");
-                    pr.flush();
+                    log.info("Before");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("login.html");
+                    dispatcher.forward(request,response);
+                    log.info("After");
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-            }
-            if(result1 == 0){//next page
-                pr.println("<html><head><title>PICKMEUP</title></head><body>");
-                pr.println("<p>NEXT PAGE</p></body></html>");
-                pr.flush();
-            }
-            else{// error
-                pr.println("<html><head><title>PICKMEUP</title></head><body>");
-                pr.println("<p>Person Already exist in the database </p></body></html>");
-                pr.flush();
             }
 
         } catch (ClassNotFoundException e) {
@@ -110,6 +111,23 @@ public class SignUp extends HttpServlet {
             e.printStackTrace();
         }
         return 0;//direct to next page
+    }
+    public static String sha_256(String password){
+
+        try{
+            MessageDigest msg = MessageDigest.getInstance("SHA-256");
+            byte[] hash = msg.digest(password.getBytes("UTF-8"));
+            StringBuffer hexStr = new StringBuffer();
+
+            for(int i = 0; i< hash.length;i++){
+                String hex = Integer.toHexString(0xff & hash[i]);
+                if(hex.length() == 1)hexStr.append('0');
+                hexStr.append(hex);
+            }
+            return hexStr.toString();
+        }catch (Exception ex){
+            throw new RuntimeException(ex);
+        }
     }
 
 
