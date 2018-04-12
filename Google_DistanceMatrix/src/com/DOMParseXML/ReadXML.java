@@ -58,6 +58,8 @@ public class ReadXML {
                     Element element = (Element) node;
                     System.out.println(element.getAttribute("element"));
                     System.out.println(element.getElementsByTagName("text").item(0).getTextContent());
+                    float distance = Integer.parseInt(element.getElementsByTagName("distance").item(0).getChildNodes().item(1).getLastChild().getTextContent().toString(), 10);
+                    System.out.println(distance / 1000 + "Km");
 
                 }
             }
