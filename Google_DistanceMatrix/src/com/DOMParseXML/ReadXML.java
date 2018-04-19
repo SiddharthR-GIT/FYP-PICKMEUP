@@ -1,18 +1,20 @@
 package com.DOMParseXML;
 
 import java.io.File;
+import java.io.StringReader;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 
 public class ReadXML {
 
-    private static final String XML_FILENAME = "/Users/sid/Desktop/5th year/Project/awsDataBase/PROJECT/Google_DistanceMatrix/src/distance.xml";
+    private float distance;
 
-    public static void main(String[] args) {
+    public String DOMParseXML(String xml){
         /*try {
             File inputFile = new File(XML_FILENAME);
             DocumentBuilderFactory dFactory = DocumentBuilderFactory.newInstance();
@@ -41,10 +43,9 @@ public class ReadXML {
         }*/
 
         try {
-            File inputFile = new File(XML_FILENAME);
             DocumentBuilderFactory dFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dFactory.newDocumentBuilder();
-            Document doc = documentBuilder.parse(inputFile);
+            Document doc = documentBuilder.parse(new InputSource(new StringReader(xml)));
             doc.getDocumentElement().normalize();
 
 
@@ -56,9 +57,8 @@ public class ReadXML {
                 Node node = nodeList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element element = (Element) node;
-                    System.out.println(element.getAttribute("element"));
                     System.out.println(element.getElementsByTagName("text").item(0).getTextContent());
-                    float distance = Integer.parseInt(element.getElementsByTagName("distance").item(0).getChildNodes().item(1).getLastChild().getTextContent().toString(), 10);
+                    distance = Integer.parseInt(element.getElementsByTagName("distance").item(0).getChildNodes().item(1).getLastChild().getTextContent().toString(), 10);
                     System.out.println(distance / 1000 + "Km");
 
                 }
@@ -67,5 +67,6 @@ public class ReadXML {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return xml;
     }
 }

@@ -1,7 +1,6 @@
 package DistanceMatrixInXML;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import com.DOMParseXML.ReadXML;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -17,15 +16,8 @@ public class distanceObject {
                     "&key=" + API_KEY;
 
 
-    private static final String XML_FILENAME = "/Users/sid/Desktop/5th year/Project/TEST4AWS/Jython/src/distance.xml";
-
-    FileWriter fw = null;
-    BufferedWriter bw = null;
-
     public distanceObject() {
         try {
-
-
             URL url = new URL(TARGET_XML_URL);
             URLConnection urlConnection = url.openConnection();
             HttpURLConnection httpURLConnection = (HttpURLConnection) urlConnection;
@@ -53,37 +45,18 @@ public class distanceObject {
                 respXml += line;
 
             }
+            new ReadXML().DOMParseXML(respXml);
 
-            fw = new FileWriter(XML_FILENAME);
-            bw = new BufferedWriter(fw);
-            bw.write(respXml);
 
             System.out.println("Done");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-
-            try {
-
-                if (bw != null)
-                    bw.close();
-
-                if (fw != null)
-                    fw.close();
-
-            } catch (IOException ex) {
-
-                ex.printStackTrace();
-
-            }
         }
     }
 
     public static void main(String[] args) {
         new distanceObject();
-        //ReadXML.readJSONObject(JSON_FILENAME);
     }
-
 }
