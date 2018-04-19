@@ -60,14 +60,14 @@ public class SignUp extends HttpServlet {
             } else {//insert new person
                 try {
                     statement = connection.createStatement();
-                    String sqlStatement = "INSERT INTO peopleDetails(First_Name,Last_Name,Email,Title,passKey) " +
-                            "VALUES ('" + first_name + "','" + last_name + "','" + Email + "','" + Title + "','" + hashPass + "') ";
+                    String sqlStatement = "INSERT INTO peopleDetails(First_Name,Last_Name,Email,Title,passKey,Origin, Destination) " +
+                            "VALUES ('" + first_name + "','" + last_name + "','" + Email + "','" + Title + "','" + hashPass + "','"+ originInput+"','"+ destinationInput+"') ";
 
                     statement.executeUpdate(sqlStatement);
 
                     statement2 = connection.createStatement();
-                    String sqlStatement2 = "INSERT INTO Login(Email,Title,passKey,Origin,Destination) " +
-                            "VALUE('" + LoginEmail + "','" + loginTitle + "','" + hashPass + "','"+ originInput+"','"+ destinationInput+"')";
+                    String sqlStatement2 = "INSERT INTO Login(Email,Title,passKey) " +
+                            "VALUE('" + LoginEmail + "','" + loginTitle + "','" + hashPass + "')";
 
                     statement2.executeUpdate(sqlStatement2);
                     log.info("Before");
@@ -112,8 +112,13 @@ public class SignUp extends HttpServlet {
         }
         return 0;//direct to next page
     }
+
     public static String sha_256(String password){
 
+        return getString(password);
+    }
+
+    static String getString(String password) {
         try{
             MessageDigest msg = MessageDigest.getInstance("SHA-256");
             byte[] hash = msg.digest(password.getBytes("UTF-8"));

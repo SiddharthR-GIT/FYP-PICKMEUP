@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -8,26 +9,20 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-public class DistanceMartixDOMParser {
+public class DistanceMatrixDOMParser {
 
-
-    private static final String XML_FILENAME = "/Users/sid/Desktop/5th year/Project/awsDataBase/PROJECT/dbLoginTest/src/distance.xml";
-
-    public static String getDistance() {
+    public static String getDistance(String xml) {
 
         String distanceBt2Points = null;
         try {
-            File inputFile = new File(XML_FILENAME);
             DocumentBuilderFactory dFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dFactory.newDocumentBuilder();
-            Document doc = documentBuilder.parse(inputFile);
+            Document doc = documentBuilder.parse(new InputSource(new StringReader(xml)));
             doc.getDocumentElement().normalize();
 
-
-//            System.out.println(doc.getDocumentElement().getElementsByTagName("origin_address").item(0).getTextContent());
-//            System.out.println(doc.getDocumentElement().getElementsByTagName("destination_address").item(0).getTextContent());
             NodeList nodeList = doc.getElementsByTagName("row");
 
             for (int i = 0; i < nodeList.getLength(); i++) {
@@ -40,28 +35,19 @@ public class DistanceMartixDOMParser {
                 }
             }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (DOMException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
+        } catch (IOException | NumberFormatException | ParserConfigurationException | DOMException | SAXException e) {
             e.printStackTrace();
         }
         return distanceBt2Points;
     }
 
-    public static String getJourneyDuration() {
+    public static String getJourneyDuration(String xml) {
 
         String journeyTime = null;
         try {
-            File inputFile = new File(XML_FILENAME);
             DocumentBuilderFactory dFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder documentBuilder = dFactory.newDocumentBuilder();
-            Document doc = documentBuilder.parse(inputFile);
+            Document doc = documentBuilder.parse(new InputSource(new StringReader(xml)));
             doc.getDocumentElement().normalize();
 
 
@@ -84,4 +70,5 @@ public class DistanceMartixDOMParser {
         }
         return journeyTime;
     }
+
 }

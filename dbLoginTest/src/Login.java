@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -27,8 +26,10 @@ public class Login extends HttpServlet {
         String loginEmail = request.getParameter("Email");
         String title = request.getParameter("Title");
         String Password = request.getParameter("Password");
-        String hashedPasskey = HashPassword.sha_256(Password);
+        String hashedPasskey = SignUp.sha_256(Password);
         PrintWriter pr = response.getWriter();
+
+
 
         Logger log = Logger.getLogger(Connection.class.getName());
         try {
@@ -47,8 +48,10 @@ public class Login extends HttpServlet {
 
             if (checkPasswords.equals(hashedPasskey)) {
                 if (checkTitle.equals("Passenger") || checkTitle.equals("passenger")) {
-                    Cookie ck =new Cookie("Hi",getName.toUpperCase());
-                    response.addCookie(ck);
+
+//                    Cookie ck =new Cookie("Hi ",getName.toUpperCase());
+//                    response.addCookie(ck);
+
                     RequestDispatcher dispatcher = request.getRequestDispatcher("Passenger.html");
                     dispatcher.forward(request, response);
                     log.info("Here");
@@ -108,103 +111,6 @@ public class Login extends HttpServlet {
         return null;//
     }
 }
-
-/**********************************************************Some of the code not working but good for reference****************/
-        /*try {
-            String driver = "com.mysql.jdbc.Driver";
-            String url = "jdbc:mysql://localhost:3306/Details?autoReconnect=true&useSSL=false";
-            Class.forName(driver);  // load the driver
-            connection = DriverManager.getConnection(url, "root", "password");
-
-            find = connection.prepareStatement("SELECT * FROM Login WHERE Email =?,Title=?,passkey=?");//data to enter the sign up page
-
-            String checkPasswords = checkLoginDB(Email); // checking for duplicate email
-            String checkTitle = checkTitle("Passenger");
-
-            if(checkPasswords.equals(hashedPasskey)){
-                pr.println("<html><head><title>PICKMEUP</title></head><body>");
-                pr.println("<h2>Page</h2></body></html>");
-                pr.flush();
-//                response.sendRedirect("Passenger.html");
-//                Cookie ck = new Cookie("HI,",loginEmail);  // Creating cookie
-//                response.addCookie(ck);
-
-                if(checkTitle.equals("Passenger".toLowerCase()) || checkTitle.equals("Passenger".toUpperCase()) || checkTitle.equals("Passenger")){
-
-                    log.info("Passenger Page");
-                    response.sendRedirect("Passenger.html");
-
-                }else{
-
-                    log.info("Driver Page");
-                    response.sendRedirect("Driver.html");
-                    pr.println("<html><head><title>PICKMEUP</title></head><body>");
-                    pr.println("<h2>Driver page</h2></body></html>");
-                    pr.flush();
-                }
-            }
-            else {
-                pr.println("<html><head><title>PICKMEUP</title></head><body>");
-                pr.println("<h2>ERROR - no match password or email,Press back</h2></body></html>");
-                pr.flush();
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }*/
-
-        /*try {
-            String driver = "com.mysql.jdbc.Driver";
-            String url = "jdbc:mysql://localhost:3306/Details?autoReconnect=true&useSSL=false";
-            Class.forName(driver);  // load the driver
-            connection = DriverManager.getConnection(url, "root", "password");
-
-            find = connection.prepareStatement("SELECT * FROM Login WHERE Email=?");//data to enter the sign up page
-
-            String checkPasswords = checkLoginDB(Email); // checking for duplicate email
-            String checkTitle = checkTitle(Email,title,hashedPasskey);
-            log.info("Here");
-            pr.println("<html><head><title>PICKMEUP</title></head><body>");
-            pr.println("<h2>Logged In</h2></body></html>");
-            pr.flush();
-            if(checkPasswords.equals(hashedPasskey)){
-                pr.println("<html><head><title>PICKMEUP</title></head><body>");
-                pr.println("<h2>Page in loop</h2></body></html>");
-                pr.flush();
-                response.sendRedirect("Passenger.html");
-                //Cookie ck = new Cookie("HI,",loginEmail);  // Creating cookie
-                //response.addCookie(ck);
-
-                if(checkTitle.equals("Passenger".toLowerCase()) || checkTitle.equals("Passenger".toUpperCase()) || checkTitle.equals("Passenger")){
-
-                    log.info("Passenger Page");
-                    //response.sendRedirect("Passenger.html");
-                    pr.println("<h2>Page in loop</h2>");
-                    pr.flush();
-                }else{
-
-                    log.info("Driver Page");
-                    response.sendRedirect("Driver.html");
-                    pr.println("<html><head><title>PICKMEUP</title></head><body>");
-                    pr.println("<h2>Driver page</h2></body></html>");
-                    pr.flush();
-                }
-            }
-            else {
-                pr.println("<html><head><title>PICKMEUP</title></head><body>");
-                pr.println("<h2>ERROR - no match password or email,Press back</h2></body></html>");
-                pr.flush();
-
-            }
-        } catch (Exception e) {
-            pr.flush();
-            e.printStackTrace();
-        }finally {
-            pr.println("<html><head><title>PICKMEUP</title></head><body>");
-            pr.println("<h2>close</h2></body></html>");
-            pr.flush();
-            pr.close();
-        }*/
 
 
 
