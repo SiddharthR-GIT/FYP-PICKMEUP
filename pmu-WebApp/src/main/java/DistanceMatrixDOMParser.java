@@ -1,4 +1,3 @@
-import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import javax.xml.parsers.DocumentBuilder;
@@ -30,7 +29,7 @@ public class DistanceMatrixDOMParser {
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element element = (Element) node;
                     element.getAttribute("element");
-                    float distance = Integer.parseInt(element.getElementsByTagName("distance").item(0).getChildNodes().item(1).getLastChild().getTextContent().toString(), 10);
+                    float distance = Integer.parseInt(element.getElementsByTagName("distance").item(0).getChildNodes().item(1).getLastChild().getTextContent(), 10);
                     distanceBt2Points = String.valueOf((distance / 1000));
                 }
             }

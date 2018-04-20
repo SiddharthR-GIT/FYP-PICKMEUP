@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
@@ -49,7 +50,7 @@ public class DistanceMatrixXMLGenerator {
             new DistanceMatrixDOMParser().getJourneyDuration(respXml);
 
 
-        } catch (MalformedURLException e) {
+        } catch (MalformedURLException | ProtocolException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();

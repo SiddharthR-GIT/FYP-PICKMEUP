@@ -99,7 +99,7 @@ public class Login extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;//direct to next page
+        return null;//direct to previous page
     }
 
     @Nullable

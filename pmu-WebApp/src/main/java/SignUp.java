@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = {"/SignUp"})
 public class SignUp extends HttpServlet {
 
-    private PreparedStatement find, find2;
+    private PreparedStatement find;
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
@@ -53,7 +53,7 @@ public class SignUp extends HttpServlet {
 
             //data to enter the sign up page
             find = connection.prepareStatement("SELECT * FROM peopleDetails WHERE Email =?");
-            find2 = connection.prepareStatement("SELECT * FROM Login WHERE Email=?");
+            PreparedStatement find2 = connection.prepareStatement("SELECT * FROM Login WHERE Email=?");
 
             int result = checkSignDB(Email);
 
