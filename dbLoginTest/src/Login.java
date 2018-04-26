@@ -8,10 +8,10 @@ import java.sql.SQLException;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
@@ -46,11 +46,15 @@ public class Login extends HttpServlet {
             String checkTitle = checkTitle(title);
             String getName = getName(loginEmail);
 
+
+
             if (checkPasswords.equals(hashedPasskey)) {
                 if (checkTitle.equals("Passenger") || checkTitle.equals("passenger")) {
 
 //                    Cookie ck =new Cookie("Hi ",getName.toUpperCase());
 //                    response.addCookie(ck);
+                    HttpSession session =request.getSession();
+                    session.setAttribute("name",getName.toUpperCase());
 
                     RequestDispatcher dispatcher = request.getRequestDispatcher("Passenger.html");
                     dispatcher.forward(request, response);
