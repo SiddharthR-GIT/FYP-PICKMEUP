@@ -11,10 +11,13 @@ public class DistanceMatrixXMLGenerator {
 
     private static final String API_KEY = "AIzaSyCFreEK4Ur8T7aV3CRG7pwSbKvfaT89YpQ";
 
-    public String urlDistance(String origin, String destination) {
+    public String urlDistance(String origin, String destination) throws IOException {
+
+
         String TARGET_XML_URL = "https://maps.googleapis.com/maps/api/distancematrix/xml?units=Metric&origins=" + origin.replace(" ", "+") +
                 "&destinations=" + destination.replace(" ", "+") +
                 "&key=" + API_KEY;
+
         String respXml = "";
         try {
 
@@ -51,8 +54,6 @@ public class DistanceMatrixXMLGenerator {
 
 
         } catch (MalformedURLException | ProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         }
         return respXml;

@@ -13,6 +13,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.jetbrains.annotations.Nullable;
 
 @WebServlet(urlPatterns = {"/Login"})
@@ -26,7 +27,6 @@ public class Login extends HttpServlet {
         String loginPassword = request.getParameter("Password");
         String title = request.getParameter("Title");
         String hashedPasskey = SignUp.sha_256(loginPassword);
-        PrintWriter pr = response.getWriter();
 
         String dbName = System.getProperty("RDS_DB_NAME");
         String userName = System.getProperty("RDS_USERNAME");
@@ -57,15 +57,18 @@ public class Login extends HttpServlet {
                 if (checkTitle.equals("Passenger") || checkTitle.equals("passenger")) {
 
                     assert getName != null;
-                    Cookie ckPassenger =new Cookie("Hi",getName.toUpperCase());
-                    response.addCookie(ckPassenger);
+
+                    /*Create Session**/
+
+                    HttpSession session =request.getSession();
+                    session.setAttribute("name",getName.toUpperCase());
 
                     RequestDispatcher dispatcher = request.getRequestDispatcher("Passenger.html");
                     dispatcher.forward(request, response);
                     log.info("Here");
                 }
 
-                else {
+                else{
 
                     assert getName != null;
                     Cookie ckDriver =new Cookie("Hi",getName.toUpperCase());
