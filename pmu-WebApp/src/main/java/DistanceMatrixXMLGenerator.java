@@ -30,7 +30,7 @@ public class DistanceMatrixXMLGenerator {
             httpURLConnection.setDoOutput(true);
             String response = httpURLConnection.getResponseMessage();
 
-            System.out.println("Response is " + response.toString());
+            System.out.println("Response is " + response);
 
 
             if (httpURLConnection.getInputStream() == null) {

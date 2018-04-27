@@ -1,6 +1,3 @@
-
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,19 +6,26 @@ import java.sql.SQLException;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ *
+ */
 @WebServlet(urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
 
     private PreparedStatement findPassword,findTitle,findName;
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    /**
+     * @param request
+     * @param response
+     */
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response){
         response.setContentType("text/html");
         String loginEmail = request.getParameter("Email");
         String loginPassword = request.getParameter("Password");
@@ -71,11 +75,11 @@ public class Login extends HttpServlet {
                 else{
 
                     assert getName != null;
-                    Cookie ckDriver =new Cookie("Hi",getName.toUpperCase());
-                    response.addCookie(ckDriver);
+                    HttpSession session =request.getSession();
+                    session.setAttribute("name",getName.toUpperCase());
 
-                    /*RequestDispatcher dispatcher = request.getRequestDispatcher("Driver.html");
-                    dispatcher.forward(request,response);*/
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("Driver.html");
+                    dispatcher.forward(request,response);
 
                     log.info("Driver page1");
                 }
@@ -89,6 +93,10 @@ public class Login extends HttpServlet {
         }
     }
 
+    /**
+     * @param LoginEmail
+     * @return
+     */
     @Nullable
     private String checkLoginDB(String LoginEmail) {
         try {
@@ -105,6 +113,10 @@ public class Login extends HttpServlet {
         return null;//direct to previous page
     }
 
+    /**
+     * @param title
+     * @return
+     */
     @Nullable
     private String checkTitle(String title) {
         try {
@@ -121,6 +133,10 @@ public class Login extends HttpServlet {
         return null;//request was unsuccessful
     }
 
+    /**
+     * @param email
+     * @return
+     */
     @Nullable
     private String getName(String email){
         try {
@@ -133,5 +149,14 @@ public class Login extends HttpServlet {
             e.printStackTrace();
         }
         return null;//
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void destroy(){
+        Logger log = Logger.getLogger(Driver.class.getName());
+        log.info("Destroy Servlet");
     }
 }

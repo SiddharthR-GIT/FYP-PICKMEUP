@@ -18,10 +18,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ *
+ */
 @WebServlet(urlPatterns = "/Passenger")
 public class Passenger extends HttpServlet {
 
 
+    /**
+     * @param request
+     * @param response
+     * @throws IOException
+     * @throws ServletException
+     */
+    @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
@@ -48,7 +58,7 @@ public class Passenger extends HttpServlet {
         if(session != null) {
 
             String sessionName = (String) session.getAttribute("name");
-            pr.println("<html><head><title>PICKMEUP</title></head><body>");
+            pr.println("<html><head><title>Pick Me Up</title></head><body>");
             pr.println("<div class = \"topnav\">" +
                         "<a class = \"active\"> Hi "+sessionName+"</a>" +
                         "<a>Origin: " + origin +"</a>" +
@@ -60,30 +70,9 @@ public class Passenger extends HttpServlet {
 
             pr.println(" <link rel=\"stylesheet\" href=\"tableStyle.css\">");
             try {
-                String driver = "com.mysql.jdbc.Driver";
-                Class.forName(driver);  // load the driver
-                Connection connection = DriverManager.getConnection(jdbcUrl);
 
-                PreparedStatement getDetails = connection.prepareStatement("SELECT * FROM peopleDetails");
-                ResultSet rs = getDetails.executeQuery();
+                Driver.getActorsAttributes(jdbcUrl, pr, origin, destination);
 
-                pr.println("<table id=\"t01\">");
-                pr.println("<tr><th>First Name</th><th>Surname</th><th>Place of Origin</th><th>Destination</th><th>Service</th></tr>");
-
-
-                while (rs.next()) {
-                    if (rs.getString("Title").equals("Driver") || rs.getString("Title").equals("driver")) {
-                        if (rs.getString("Origin").equals(origin) && rs.getString("Destination").equals(destination)) { // same origin and same destination
-                            pr.println("<tr>"
-                                    + "<td>" + rs.getString("First_Name") + "</td>"
-                                    + "<td>" + rs.getString("Last_name") + "</td>"
-                                    + "<td>" + rs.getString("Origin") + "</td>"
-                                    + "<td>" + rs.getString("Destination") + "</td><td><form><input type=\"button\" value=\"Chat\" onclick=\"window.location.href='https://afternoon-basin-90601.herokuapp.com/'\"/></form></td>");
-                        }
-                    }
-                }
-
-                pr.println("</table></p></body></html>");
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -92,10 +81,19 @@ public class Passenger extends HttpServlet {
             }
         }
         else{
-            pr.println("<h2>Please Login first</h2>");
+            pr.println("<h2><font color=\"red\">Please Login first!</font></h2>");
             request.getRequestDispatcher("login.html").include(request,response);
             pr.flush();
             pr.close();
         }
+    }
+
+    /**
+     *
+     */
+    @Override
+    public void destroy(){
+        Logger log = Logger.getLogger(Driver.class.getName());
+        log.info("Destroy Servlet");
     }
 }
