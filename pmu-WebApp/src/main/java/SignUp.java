@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -61,25 +63,40 @@ public class SignUp extends HttpServlet {
                 pr.println("<html><head><title>PICKMEUP</title></head><body>");
                 pr.println("<p>Person Already exist in the database </p></body></html>");
                 pr.flush();
+                pr.close();
             }
             else {//insert new person
                 try {
-                    Statement statement = connection.createStatement();
-                    String sqlStatement = "INSERT INTO peopleDetails(First_Name,Last_Name,Email,Title,passKey,Origin,Destination) " +
-                            "VALUES ('" + first_name + "','" + last_name + "','" + Email + "','" + Title + "','" + hashPass + "','"+ originInput+"','"+ destinationInput+"')";
+                    if(EmailValidator(Email) == true && Password.length() >=8 && Title.length() >=6) {
+                        Statement statement = connection.createStatement();
+                        String sqlStatement = "INSERT INTO peopleDetails(First_Name,Last_Name,Email,Title,passKey,Origin,Destination) " +
+                                "VALUES ('" + first_name + "','" + last_name + "','" + Email + "','" + Title + "','" + hashPass + "','" + originInput + "','" + destinationInput + "')";
 
-                    statement.executeUpdate(sqlStatement);
+                        statement.executeUpdate(sqlStatement);
 
-                    Statement statement2 = connection.createStatement();
-                    String sqlStatement2 = "INSERT INTO Login(Email,Title,passKey) " +
-                            "VALUE('" + LoginEmail + "','" + loginTitle + "','" + hashPass + "')";
+                        Statement statement2 = connection.createStatement();
+                        String sqlStatement2 = "INSERT INTO Login(Email,Title,passKey) " +
+                                "VALUE('" + LoginEmail + "','" + loginTitle + "','" + hashPass + "')";
 
-                    statement2.executeUpdate(sqlStatement2);
-                    log.info("Before");
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("login.html");
-                    dispatcher.forward(request,response);
-                    log.info("After");
+                        statement2.executeUpdate(sqlStatement2);
+                        log.info("Before");
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("login.html");
+                        dispatcher.forward(request, response);
+                        log.info("After");
+                    }
+                    else{
+                        pr.println("<p> NOT A VALID EMAIL, Please do back and try again</p>");
+                        pr.println("<p>Characters too short, Please try again</p>");
+                        pr.println("<a href=\"index.html\">\n" +
+                                "   <button>Back</button>\n" +
+                                "</a>");
+                    }
                 } catch (SQLException e) {
+                    pr.println("<html><head><title>PICKMEUP</title></head><body>");
+                    pr.println("<p>Error in details please check </p>" +
+                            "</body></html>");
+                    pr.flush();
+                    pr.close();
                     e.printStackTrace();
                 }
             }
@@ -89,7 +106,7 @@ public class SignUp extends HttpServlet {
         }
     }
 
-    public int checkSignDB( String Email) {
+    private int checkSignDB( String Email) {
         try {
             find.setString(1,Email);
             ResultSet rs = find.executeQuery();
@@ -117,6 +134,16 @@ public class SignUp extends HttpServlet {
             return hexStr.toString();
         }catch (Exception ex){
             throw new RuntimeException(ex);
+        }
+    }
+    private boolean EmailValidator(String emailAddress) {
+
+        Pattern emailPattern = Pattern.compile("^[(a-zA-Z-0-9-\\_\\+\\.)]+@[(a-z-A-z)]+\\.[(a-zA-z)]{2,3}$");
+        Matcher emailMatcher  = emailPattern.matcher(emailAddress);
+        if(emailMatcher.matches()) {
+            return true;//email valid
+        } else {
+            return false;//email invalid
         }
     }
 }

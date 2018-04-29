@@ -1,3 +1,5 @@
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -25,7 +27,7 @@ public class Login extends HttpServlet {
      * @param response
      */
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response){
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         String loginEmail = request.getParameter("Email");
         String loginPassword = request.getParameter("Password");
@@ -39,6 +41,7 @@ public class Login extends HttpServlet {
         String port = System.getProperty("RDS_PORT");
         String jdbcUrl = "jdbc:mysql://" + hostname + ":" + port + "/" + dbName + "?user=" + userName + "&password=" + password;
 
+        PrintWriter pr = response.getWriter();
         Logger log = Logger.getLogger(Connection.class.getName());
         try {
             String driver = "com.mysql.jdbc.Driver";
@@ -84,8 +87,12 @@ public class Login extends HttpServlet {
                     log.info("Driver page1");
                 }
             } else {
-                RequestDispatcher dispatcher = request.getRequestDispatcher("Login.html");
-                dispatcher.include(request, response);
+                pr.println("<h2> User Name or Password do not match, please try again</h2>");
+                pr.println("<a href=\"login.html\">\n" +
+                        "   <button>Back</button>\n" +
+                        "</a>");
+                pr.flush();
+                pr.close();
 
             }
         } catch (Exception e) {
