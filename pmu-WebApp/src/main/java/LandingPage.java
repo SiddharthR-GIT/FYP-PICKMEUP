@@ -3,27 +3,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- */
-public class LogOut extends HttpServlet {
+public class LandingPage extends HttpServlet{
 
-    /**
-     * @param request
-     * @param response
-     */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-
+    public void doPost(HttpServletRequest request, HttpServletResponse response){
         response.setContentType("text/html");
-
     }
-    /**
-     *
-     */
+
     @Override
     public void destroy(){
         Logger log = Logger.getLogger(Driver.class.getName());
-        log.info("Destroy Login Servlet");
+        log.info("Destroy Landing Page Servlet");
     }
 }

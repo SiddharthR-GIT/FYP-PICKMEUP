@@ -50,7 +50,7 @@ public class Login extends HttpServlet {
 
             findPassword = connection.prepareStatement("SELECT * FROM Login WHERE Email =?");
             findTitle = connection.prepareStatement("SELECT * FROM Login WHERE Title=?");
-            findName = connection.prepareStatement("SELECT *FROM peopleDetails where Email=?");
+            findName = connection.prepareStatement("SELECT *FROM peopleDetails WHERE Email=?");
 
             //data to enter the sign up page
             String checkPasswords = checkLoginDB(loginEmail); // checking for duplicate email
@@ -65,38 +65,44 @@ public class Login extends HttpServlet {
 
                     assert getName != null;
 
-                    /*Create Session**/
-
-                    HttpSession session =request.getSession();
-                    session.setAttribute("name",getName.toUpperCase());
+                    HttpSession session = request.getSession();
+                    session.setAttribute("name", getName.toUpperCase());
 
                     RequestDispatcher dispatcher = request.getRequestDispatcher("Passenger.html");
                     dispatcher.forward(request, response);
                     log.info("Here");
-                }
-
-                else{
+                } else if (checkTitle.equals("Driver") || checkTitle.equals("driver")) {
 
                     assert getName != null;
-                    HttpSession session =request.getSession();
-                    session.setAttribute("name",getName.toUpperCase());
+                    HttpSession session = request.getSession();
+                    session.setAttribute("name", getName.toUpperCase());
 
                     RequestDispatcher dispatcher = request.getRequestDispatcher("Driver.html");
-                    dispatcher.forward(request,response);
+                    dispatcher.forward(request, response);
 
                     log.info("Driver page1");
+                } else {
+                    pr.println("<h2> User Name or Password do not match, please try again</h2>");
+                    pr.println("<a href=\"login.html\">\n" +
+                            "   <button>Back</button>\n" +
+                            "</a>");
+
+
                 }
-            } else {
+            }else{
                 pr.println("<h2> User Name or Password do not match, please try again</h2>");
                 pr.println("<a href=\"login.html\">\n" +
                         "   <button>Back</button>\n" +
                         "</a>");
-                pr.flush();
-                pr.close();
 
             }
         } catch (Exception e) {
-            e.printStackTrace();
+
+            pr.println(e.getMessage());
+        }
+        finally {
+            pr.flush();
+            pr.close();
         }
     }
 
@@ -157,13 +163,12 @@ public class Login extends HttpServlet {
         }
         return null;//
     }
-
     /**
      *
      */
     @Override
     public void destroy(){
         Logger log = Logger.getLogger(Driver.class.getName());
-        log.info("Destroy Servlet");
+        log.info("Destroy Login Servlet");
     }
 }

@@ -84,10 +84,21 @@ public class SignUp extends HttpServlet {
                         dispatcher.forward(request, response);
                         log.info("After");
                     }
-                    else{
-                        pr.println("<p> NOT A VALID EMAIL, Please do back and try again</p>");
-                        pr.println("<p>Characters too short, Please try again</p>");
-                        pr.println("<a href=\"index.html\">\n" +
+                    else if(!EmailValidator(Email) || Password.length() < 8 || Title.length() < 6){
+
+                        pr.println("<p> NOT A VALID EMAIL</p>");
+
+                        if(Password.length() < 8) {
+                            pr.println("<p> OR </p>");
+                            pr.println("<p>Password entered is too short, Please try again</p>");
+
+                        }
+                        else if(Title.length() < 6) {
+                            pr.println("<p> OR </p>");
+                            pr.println("<p> Title entered is too short ,Its either a Driver or a Passenger. Please try again</p>");
+
+                        }
+                        pr.println("<a href=\"signup.html\">\n" +
                                 "   <button>Back</button>\n" +
                                 "</a>");
                     }
@@ -145,5 +156,11 @@ public class SignUp extends HttpServlet {
         } else {
             return false;//email invalid
         }
+    }
+
+    @Override
+    public void destroy(){
+        Logger log = Logger.getLogger(Driver.class.getName());
+        log.info("Destroy Signup Servlet");
     }
 }

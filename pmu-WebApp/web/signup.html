@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+<form name="signup" method="post" action="/SignUp">
+    <h2>Sign Up</h2>
+    <p>
+        <label for="first_name" ></label>
+        <input  type="text" id="first_name" placeholder="First Name *"  minlength="3" name="first_name" size="30" required/>
+    </p>
+
+    <p>
+        <label for="last_name"></label>
+        <input  type="text"  id="last_name" placeholder="Last Name *" name="last_name" minlength="3" size="30" required/>
+    </p>
+    <p>
+        <label for="Email"></label>
+        <input  type="text" placeholder="Email *" name="Email" type="email" maxlength="50" size="30" required/>
+        <span>Enter a valid Email</span>
+    </p>
+    <p>
+        <label for="Title"></label>
+        <input  type="text" id="Title" placeholder="Driver or Passenger*" name="Title" minlength="6" maxlength="50" size="30" required/>
+        <span>Driver or Passenger</span>
+    </p>
+
+    <p>
+        <label for="Password"></label>
+        <input  type="password" id="Password" placeholder="Password*" name="Password" minlength="8" maxlength="50" size="30" required/>
+        <span>Greater than 8 characters</span>
+    </p>
+
+    <p>
+        <label for="Origin"></label>
+        <input  type="text" placeholder="Place of Origin(Enter city and county)" name="Origin" maxlength="50" size="30" required>
+        <span>Origin</span>
+    </p>
+    <p>
+        <label for="Destination"></label>
+        <input  type="text" placeholder="Place of Destination(Enter city and county)" name="Destination" maxlength="50" size="30" required>
+        <span>Destination</span>
+    </p>
+
+
+    <p>
+        <input type="submit" type="submit" value="Create My Account"/>
+    </p>
+
+    <script>
+
+    </script>
+
+    <div style="text-align: center">
+        <a href="login.html">Or Login</a>
+    </div>
+
+
+</form>
+
+</body>
+
+</html>

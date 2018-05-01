@@ -11,7 +11,6 @@
 
 <body>
 
-<!--<form  action="index.jsp" method="post" >-->
 <form name="login" method="post" action="/Login">
     <h2>Login</h2>
 
@@ -22,13 +21,13 @@
     </p>
     <p>
         <label for="Title"></label>
-        <input  type="text" placeholder="Driver or Passenger*" name="Title" type="title"  maxlength="50" size="30" required>
+        <input  type="text" placeholder="Driver or Passenger*" name="Title" minlength="6" maxlength="50" size="30" required>
         <span>Driver or Passenger</span>
     </p>
     <p>
         <label for="Password"></label>
-        <input  type="password" placeholder="Password*" name="Password" type="password" minlength="8" maxlength="50" size="30" required>
-        <span>Driver or Passenger</span>
+        <input  type="password" placeholder="Password*" name="Password" minlength="8" maxlength="50" size="30" required>
+        <span>Greater than 8 characters</span>
     </p>
 
     <p>

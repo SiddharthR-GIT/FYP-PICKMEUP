@@ -1,68 +1,121 @@
 <!DOCTYPE html>
-<html lang="en" >
-
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-
-    <link rel="stylesheet" href="style.css">
-
-
-</head>
-
+<html>
 <body>
+<title>Pick Me Up</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body {font-family: "Lato", sans-serif}
+    .mySlides {display: none}
+</style>
+<form name="landingpage" method="post" action="/LandingPage">
 
-<!--<form  action="index.jsp" method="post" >-->
-<form name="signup" method="post" action="/SignUp" onsubmit="return validateForm()">
-    <h2>Sign Up</h2>
-    <p>
-        <label for="first_name" ></label>
-        <input  type="text" id="first_name" placeholder="First Name *" name="first_name" minlength="4" maxlength="50" size="30" required/>
-    </p>
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a href="signup.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SIGN UP</a>
+        <a href="login.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LOGIN</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+    </div>
+</div>
 
-    <p>
-        <label for="last_name"></label>
-        <input  type="text"  id="last_name" placeholder="Last Name *" name="last_name" minlength="4" maxlength="50" size="30" required/>
-    </p>
-    <p>
-        <label for="Email"></label>
-        <input  type="text" placeholder="Email *" name="Email" type="email" maxlength="50" size="30" required/>
-        <span>Enter a valid Email</span>
-    </p>
-    <p>
-        <label for="Title"></label>
-        <input  type="text" id="Title" placeholder="Driver or Passenger*" name="Title" type="title" minlength="6" maxlength="50" size="30" required/>
-        <span>Driver or Passenger</span>
-    </p>
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <a href="signup.html" class="w3-bar-item w3-button w3-padding-large">SIGNUP</a>
+    <a href="login.html" class="w3-bar-item w3-button w3-padding-large">LOGIN</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large">CONTACT</a>
+</div>
 
-    <p>
-        <label for="Password"></label>
-        <input  type="password" id="Password" placeholder="Password*" name="Password" type="password" minlength="8" maxlength="50" size="30" required/>
-    </p>
-
-    <p>
-        <label for="Origin"></label>
-        <input  type="text" placeholder="Where are you going from?" name="Origin" type="origin" maxlength="50" size="30" required>
-        <span>Origin</span>
-    </p>
-    <p>
-        <label for="Destination"></label>
-        <input  type="text" placeholder="Where you want to going to?" name="Destination" type="destination" maxlength="50" size="30" required>
-        <span>Destination</span>
-    </p>
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
 
 
-    <p>
-        <input onclick="window.location.href='login.html';" type="submit" value="Create My Account"/>
-    </p>
+    <!-- The Band Section -->
+    <div background="pictures/background.png" class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+        <h2 class="w3-wide">PICK ME UP</h2>
+        <p class="w3-opacity"><i>A Ride Sharing Application</i></p>
+        <p class="w3-justify"> Traveling is a key aspect of our lives today. But getting from one place to another can be a little tricky and expensive.
+                            This web application that connects drivers and passengers who have the same origin and similar destination.
+                            With the help of this application, passengers can be connected to drivers who are traveling to the same or similar destination.  </p>
 
-    <div style="text-align: center">
-        <a href="login.html">Or Login</a>
+        <div class="w3-row w3-padding-32">
+            <div class="w3-third">
+                <img src="pictures/briefcaseman.png" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+            </div>
+            <div class="w3-third">
+                <img src="pictures/Marker.png" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+            </div>
+            <div class="w3-third">
+                <img src="pictures/driver.png" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+            </div>
+        </div>
+
     </div>
 
 
+
+
+    <!-- The Contact Section -->
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+        <h2 class="w3-wide w3-center">CONTACT</h2>
+        <div class="w3-row w3-padding-32">
+            <div class="w3-col m6 w3-large w3-margin-bottom">
+                <i class="fa fa-map-marker" style="width:30px"></i> Galway,Ireland<br>
+                <i class="fa fa-phone" style="width:30px"></i> Phone: +353 892136199<br>
+                <i class="fa fa-envelope" style="width:30px"> </i> Email: sidraizada95@gmail.com<br>
+            </div>
+            <div class="w3-col m6"></div>
+        </div>
+    </div>
+
+    <!-- End Page Content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+<script>
+    // Automatic Slideshow - change image every 4 seconds
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        setTimeout(carousel, 4000);
+    }
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+
+</script>
 </form>
-
 </body>
-
 </html>
+
