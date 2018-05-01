@@ -68,15 +68,11 @@ public class Driver extends HttpServlet {
                 pst.setString(3,sessionName);
                 pst.executeUpdate();
                 pst.close();
+
                 log.info("here after");
-
-
-
                 String xmlGen = new DistanceMatrixXMLGenerator().urlDistance(origin, destination);
                 String distance2Destination = DistanceMatrixDOMParser.getDistance(xmlGen);// getting the distance  raw value and converting to km distance from XML File
                 String journeyDuration = DistanceMatrixDOMParser.getJourneyDuration(xmlGen);//getting duration value from XML File
-
-
 
                 pr.println("<html><head><title>Pick Me Up</title></head><body>");
                 pr.println("<div class = \"topnav\">" +
@@ -102,7 +98,7 @@ public class Driver extends HttpServlet {
                 while (rs.next()) {
                     log.info("info inside");
                     if (rs.getString("Title").equals("Passenger") || rs.getString("Title").equals("passenger")) {
-                        if (rs.getString("Origin").equals(origin) || rs.getString("Destination").equals(destination)) { // same origin or  same destination
+                        if (rs.getString("Origin").equals(origin) && rs.getString("Destination").equals(destination)) { // same origin or  same destination
                             log.info("info balls deep");
                             pr.println("<tr>"
                                     + "<td>" + rs.getString("First_Name") + "</td>"

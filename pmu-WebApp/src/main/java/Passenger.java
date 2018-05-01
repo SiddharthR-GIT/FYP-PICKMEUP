@@ -68,12 +68,11 @@ public class Passenger extends HttpServlet {
                 pst.setString(1, origin);
                 pst.setString(2, destination);
                 pst.setString(3, sessionName);
-                pst.executeUpdate();
-                pst.close();
-
                 String xmlGenerator = new DistanceMatrixXMLGenerator().urlDistance(origin, destination);
                 String distance2Destination = DistanceMatrixDOMParser.getDistance(xmlGenerator);// getting the distance  raw value and converting to km distance from XML File
                 String journeyDuration = DistanceMatrixDOMParser.getJourneyDuration(xmlGenerator);//getting duration value from XML File
+                pst.executeUpdate();
+                pst.close();
 
                 log.info("before pr");
 
@@ -97,7 +96,7 @@ public class Passenger extends HttpServlet {
                 while (rs.next()) {
                     if (rs.getString("Title").equals("Driver") || rs.getString("Title").equals("driver")) {
                         log.info("here1");
-                        if (rs.getString("Origin").equals(origin) || rs.getString("Destination").equals(destination)) { // same origin or  same destination
+                        if (rs.getString("Origin").equals(origin) && rs.getString("Destination").equals(destination)) { // same origin or  same destination
                             log.info("here1");
                             pr.println("<tr>"
                                     + "<td>" + rs.getString("First_Name") + "</td>"
