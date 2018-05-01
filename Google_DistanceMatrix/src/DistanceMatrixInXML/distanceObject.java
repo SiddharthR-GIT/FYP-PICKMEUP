@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class distanceObject {
     private static final String API_KEY = "AIzaSyCFreEK4Ur8T7aV3CRG7pwSbKvfaT89YpQ";
     private static final String TARGET_XML_URL =
-            "https://maps.googleapis.com/maps/api/distancematrix/xml?units=Metric&origins=Galway,Ireland&destinations=Tuam" +
+            "https://maps.googleapis.com/maps/api/distancematrix/xml?units=Metric&origins=Letterkenny,Ireland&destinations=Sligo" +
                     "&key=" + API_KEY;
 
 

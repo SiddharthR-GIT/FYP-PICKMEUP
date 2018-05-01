@@ -195,7 +195,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-787" />
     <option name="y" value="1072" />
     <option name="width" value="1680" />
@@ -590,8 +590,7 @@
     <option name="totallyTimeSpent" value="153763000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-787" y="1072" width="1680" height="958" extended-state="1" />
-    <editor active="true" />
+    <frame x="-787" y="1072" width="1680" height="958" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
