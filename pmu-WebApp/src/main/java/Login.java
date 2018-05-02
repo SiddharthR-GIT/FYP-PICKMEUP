@@ -59,7 +59,6 @@ public class Login extends HttpServlet {
 
             assert checkPasswords != null;
             if (checkPasswords.equals(hashedPasskey)) {
-
                 assert checkTitle != null;
                 if (checkTitle.equals("Passenger") || checkTitle.equals("passenger")) {
 
@@ -98,7 +97,10 @@ public class Login extends HttpServlet {
             }
         } catch (Exception e) {
 
-            pr.println(e.getMessage());
+            pr.println("<h2> User Name or Password do not match or not present in the system, please try again</h2>");
+            pr.println("<a href=\"login.html\">\n" +
+                    "   <button>Back</button>\n" +
+                    "</a>");
         }
         finally {
             pr.flush();

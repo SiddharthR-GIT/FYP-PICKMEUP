@@ -43,7 +43,7 @@
       <file leaf-file-name="SignUp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SignUp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
+            <state relative-caret-position="1207">
               <caret line="88" column="64" lean-forward="false" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="64" />
               <folding>
                 <marker date="1525172388572" expanded="true" signature="2350:2392" ph="SELECT * FRO... peopleDetails" />
@@ -55,24 +55,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Login.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Login.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="670">
-              <caret line="65" column="43" lean-forward="false" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
+            <state relative-caret-position="44">
+              <caret line="60" column="55" lean-forward="false" selection-start-line="60" selection-start-column="55" selection-end-line="60" selection-end-column="55" />
               <folding>
-                <marker date="1525174864482" expanded="true" signature="1954:1988" ph="SELECT * FRO... Login" />
-                <marker date="1525174864482" expanded="true" signature="2045:2078" ph="SELECT * FRO... Login" />
-                <marker date="1525174864482" expanded="true" signature="2134:2174" ph="SELECT *FROM... peopleDetails" />
+                <marker date="1525257062403" expanded="true" signature="1954:1988" ph="SELECT * FRO... Login" />
+                <marker date="1525257062403" expanded="true" signature="2045:2078" ph="SELECT * FRO... Login" />
+                <marker date="1525257062403" expanded="true" signature="2134:2174" ph="SELECT *FROM... peopleDetails" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
+            <state relative-caret-position="507">
               <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding>
                 <marker date="1525188953165" expanded="true" signature="2318:2360" ph="SELECT * FRO... peopleDetails" />
@@ -84,10 +84,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="LogOut.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/LogOut.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="26" column="42" lean-forward="false" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Passenger.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Passenger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
+            <state relative-caret-position="1428">
               <caret line="98" column="68" lean-forward="false" selection-start-line="98" selection-start-column="68" selection-end-line="98" selection-end-column="68" />
               <folding>
                 <marker date="1525185701033" expanded="true" signature="2356:2383" ph="SELECT * FRO... peopleDetails" />
@@ -174,12 +184,12 @@
         <option value="$PROJECT_DIR$/web/Driver.html" />
         <option value="$PROJECT_DIR$/src/main/java/LandingPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/SignUp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Login.java" />
         <option value="$PROJECT_DIR$/web/signup.html" />
         <option value="$PROJECT_DIR$/web/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/DistanceMatrixXMLGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/Passenger.java" />
         <option value="$PROJECT_DIR$/src/main/java/Driver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Login.java" />
       </list>
     </option>
   </component>
@@ -210,10 +220,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="25" />
     <option name="y" value="22" />
     <option name="width" value="1680" />
-    <option name="height" value="956" />
+    <option name="height" value="965" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -276,6 +285,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -327,8 +338,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -580,12 +589,15 @@
       <workItem from="1525095030887" duration="10760000" />
       <workItem from="1525108550198" duration="13705000" />
       <workItem from="1525166375138" duration="10147000" />
-      <workItem from="1525182051942" duration="3841000" />
+      <workItem from="1525182051942" duration="3925000" />
+      <workItem from="1525195617270" duration="413000" />
+      <workItem from="1525206579427" duration="491000" />
+      <workItem from="1525256558113" duration="504000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222796000" />
+    <option name="totallyTimeSpent" value="224288000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -597,7 +609,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="25" y="22" width="1680" height="956" extended-state="0" />
+    <frame x="0" y="22" width="1680" height="965" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3341289" sideWeight="0.50671554" order="7" side_tool="true" content_ui="tabs" />
@@ -619,7 +632,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3353222" sideWeight="0.4932845" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16239317" sideWeight="0.47612157" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16788767" sideWeight="0.47612157" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16544567" sideWeight="0.5245665" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -771,11 +784,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/pictures/gmit.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/pictures/gmit.png" />
     <entry file="file://$PROJECT_DIR$/web/pictures/driver.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -826,14 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/LogOut.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/Passenger.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -845,7 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
           <caret line="60" column="13" lean-forward="false" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -853,7 +853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
           <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -867,7 +866,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SignUp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
+        <state relative-caret-position="1207">
           <caret line="88" column="64" lean-forward="false" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="64" />
           <folding>
             <marker date="1525172388572" expanded="true" signature="2350:2392" ph="SELECT * FRO... peopleDetails" />
@@ -894,21 +893,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="670">
-          <caret line="65" column="43" lean-forward="false" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
-          <folding>
-            <marker date="1525174864482" expanded="true" signature="1954:1988" ph="SELECT * FRO... Login" />
-            <marker date="1525174864482" expanded="true" signature="2045:2078" ph="SELECT * FRO... Login" />
-            <marker date="1525174864482" expanded="true" signature="2134:2174" ph="SELECT *FROM... peopleDetails" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Passenger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
+        <state relative-caret-position="1428">
           <caret line="98" column="68" lean-forward="false" selection-start-line="98" selection-start-column="68" selection-end-line="98" selection-end-column="68" />
           <folding>
             <marker date="1525185701033" expanded="true" signature="2356:2383" ph="SELECT * FRO... peopleDetails" />
@@ -920,13 +907,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
+        <state relative-caret-position="507">
           <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding>
             <marker date="1525188953165" expanded="true" signature="2318:2360" ph="SELECT * FRO... peopleDetails" />
             <marker date="1525188953165" expanded="true" signature="2588:2645" ph="UPDATE peopleDetails... " />
             <marker date="1525188953165" expanded="true" signature="2588:2659" ph="UPDATE peopleDetails... " />
             <marker date="1525188953165" expanded="true" signature="4058:4085" ph="SELECT * FRO... peopleDetails" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/LogOut.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="26" column="42" lean-forward="false" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="60" column="55" lean-forward="false" selection-start-line="60" selection-start-column="55" selection-end-line="60" selection-end-column="55" />
+          <folding>
+            <marker date="1525257062403" expanded="true" signature="1954:1988" ph="SELECT * FRO... Login" />
+            <marker date="1525257062403" expanded="true" signature="2045:2078" ph="SELECT * FRO... Login" />
+            <marker date="1525257062403" expanded="true" signature="2134:2174" ph="SELECT *FROM... peopleDetails" />
           </folding>
         </state>
       </provider>

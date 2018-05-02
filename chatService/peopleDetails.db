@@ -1,0 +1,12 @@
+create table peopleDetails(
+	ID int NOT NULL AUTO_INCREMENT,
+	First_Name varchar (30) NULL,
+	Last_Name varchar (30) NULL,
+	Email varchar (50) NULL,
+	Title varchar (50) NULL,
+	passKey varchar (500) NULL,
+	Origin varchar(50) NULL,
+	Destination varchar (50) NULL,
+	primary key (ID),
+	UNIQUE key Email (Email)
+)

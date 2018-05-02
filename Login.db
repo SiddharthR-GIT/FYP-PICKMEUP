@@ -1,0 +1,7 @@
+create table Login(
+	ID int NOT NULL AUTO_INCREMENT,
+	Email varchar (50) NULL,
+	Title varchar (50) NULL,
+	passKey varchar (500) NULL,
+	primary key (ID)
+)
